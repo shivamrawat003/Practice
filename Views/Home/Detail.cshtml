@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int Id = ViewBag.Id;
+    System.Data.DataTable dt = Practice.Models.AllProcs.GetEmployeeDetail(Id);
+}
+
+<h2>Detail</h2>
+@*<input type="hidden" id="Id" name="Id" value="@Id" />*@
+<div class="row">
+    <div class="col-sm-2">
+        <div class="form-group">
+            Name:
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            @dt.Rows[0]["Name"].ToString()
+            @*<input type="text" id="" name="" placeholder="" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />*@
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="form-group">
+            Email Id:
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            @dt.Rows[0]["Email"].ToString()
+            @*<input type="text" id="" name="" placeholder="" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />*@
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="form-group">
+            Phone Number/Contact Number:
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            @dt.Rows[0]["PhoneNum"].ToString()
+            @*<input type="text" id="" name="" placeholder="" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />*@
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="form-group">
+            Gender:
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            @dt.Rows[0]["GenderName"].ToString()
+            @*<input type="text" id="" name="" placeholder="" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />*@
+        </div>
+    </div>
+</div>
+<div class="row">
+        <div class="col-sm-2">
+            <div class="form-group">
+                Gender num:
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                @dt.Rows[0]["Gender"].ToString()
+                @*<input type="text" id="" name="" placeholder="" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />*@
+            </div>
+        </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="form-group">
+            Age:
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            @dt.Rows[0]["Age"].ToString()
+            @*<input type="text" id="" name="" placeholder="" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />*@
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="form-group">
+            Department:
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            @dt.Rows[0]["DeptName"].ToString()
+            @*<input type="text" id="" name="" placeholder="" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />*@
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="form-group">
+            Department num:
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            @dt.Rows[0]["Department"].ToString()
+            @*<input type="text" id="" name="" placeholder="" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />*@
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="form-group">
+            Salary:
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            @dt.Rows[0]["Salary"].ToString()
+            @*<input type="text" id="" name="" placeholder="" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />*@
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="form-group">
+            Address:
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            @dt.Rows[0]["Address"].ToString()
+            @*<input type="text" id="" name="" placeholder="" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />*@
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="form-group">
+            Country:
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            @dt.Rows[0]["Country"].ToString()
+            @*<input type="text" id="" name="" placeholder="" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />*@
+        </div>
+    </div>
+</div>
+
+
+

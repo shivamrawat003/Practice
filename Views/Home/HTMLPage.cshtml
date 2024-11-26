@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewBag.Title = "Employee Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //int a = Practice.Models.AllProcs.CountCities();
+    //int Id = ViewBag.Id;
+    System.Data.DataTable dt = Practice.Models.AllProcs.GetEmployees();
+    System.Data.DataTable Country = Practice.Models.AllProcs.Country_Select();
+    System.Data.DataTable Dept = Practice.Models.AllProcs.Dept_Select();
+    int sno = 1;
+}
+<h2 class="text-center">Create New User</h2>
+<form method="post" action="/Home/Submit">
+    <div class="row-mt-2">
+        <div class="col-sm-8 offset-sm-2">
+            <div class="card">
+                <div class="card-header fw-bold text-center">
+                    Employee Details
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" name="Name" id="Name" class="form-control" placeholder="Enter Name" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="Email" id="Email" placeholder="Enter Email" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="text" name="Phonenum" id="Phonenum" class="form-control" placeholder="Enter Phone Num" />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <br />
+                                <span>MALE</span>
+                                <input type="radio" name="Gender" id="GenderMale" value="0" />
+                                <span>FEMALE</span>
+                                <input type="radio" name="Gender" id="GenderMale" value="1" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Age</label>
+                                <input type="number" name="Age" id="Age" class="form-control" placeholder="Enter Age" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Departments</label>
+                                <select name="Dept" id="Dept" class="form-select">
+                                    @for (int j = 0; j < Dept.Rows.Count; j++)
+                                    {
+                                        <option value="@Dept.Rows[j]["Id"].ToString()">@Dept.Rows[j]["Name"].ToString()</option>
+                                    }
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Salary</label>
+                                <input type="number" name="Salary" id="Salary" class="form-control" placeholder="Enter Salary" />
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Address</label>
+                                <textarea type="text" id="Address" name="Address" rows="3" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <select name="Country" id="Country" class="form-select">
+                                    @for (int j = 0; j < Country.Rows.Count; j++)
+                                    {
+                                        <option value="@Country.Rows[j]["Id"].ToString()">@Country.Rows[j]["Name"].ToString()</option>
+                                    }
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 justify-content-xxl-center">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary form-control">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    @*<script>
+            function submit_btn() {
+
+
+                var gen = document.getElementById('male').checked == true ? 0 : 1;
+                var employee = {
+
+                    Name: $('#name').val(),
+                    Email: $('#email').val(),
+                    Phonenum: $('#phone').val(),
+                    Gender: gen,
+                    Age: $('#age').val(),
+                    Dept: $('#dept').val(),
+                    Salary: $('#salary').val(),
+                    Address: $('#address').val(),
+                    Country: $('#country').val()
+                };
+                //employee.name = $('#name').val();
+                //employee.email = $('#email').val();
+                //employee.phonenum = $('#phone').val();
+                //employee.gender = $('#gender').val();
+                //employee.age = $('#age').val();
+                //employee.dept = $('#dept').val();
+                //employee.salary = $('#salary').val();
+                //employee.address = $('#address').val();
+                //employee.country = $('#country').val();
+
+                if (employee) {
+                    $.ajax({
+                        url: '/Home/Submit',
+                        data: employee,
+                        type: "POST",
+                        success: function (result) {
+                            //clearForm();
+                            alert("Data inserted successfully");
+                            location.reload();
+
+                        },
+                        error: function (msg) {
+                            alert();
+                        }
+
+                    })
+                }
+            }
+        </script>*@
+    @*//<a href="@Url.Action("Create","Emps")" type="button" class="btn btn-primary">Create</a>*@
+    <h2 class="text-center">Existing Users</h2>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group table-responsive">
+                <table class="table table-sm table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sno.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Department</th>
+                            <th>Salary</th>
+                            <th>Address</th>
+                            <th>Country</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < dt.Rows.Count; i++, sno++)
+                        {
+                            <tr>
+                                <td>@sno</td>
+                                <td>@dt.Rows[i]["Name"].ToString()</td>
+                                <td>@dt.Rows[i]["Email"].ToString()</td>
+                                <td>@dt.Rows[i]["PhoneNum"].ToString()</td>
+                                <td>@dt.Rows[i]["GenderName"].ToString()</td>
+                                <td>@dt.Rows[i]["Age"].ToString()</td>
+                                <td>@dt.Rows[i]["DeptName"].ToString()</td>
+                                <td>@dt.Rows[i]["Salary"].ToString()</td>
+                                <td>@dt.Rows[i]["Address"].ToString()</td>
+                                <td>@dt.Rows[i]["Country"].ToString()</td>
+
+
+                                <td>
+                                    <a href="@Url.Action("Detail","Home", new { id = dt.Rows[i]["Id"].ToString() })">View</a>
+                                    <a href="@Url.Action("Edit","Home", new { id = dt.Rows[i]["Id"].ToString() })">Edit</a>
+                                    <a href="@Url.Action("Delete","Home", new { id = dt.Rows[i]["Id"].ToString() })">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+

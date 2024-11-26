@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int? Id = ViewBag.Id;
+    System.Data.DataTable dt = Practice.Models.AllProcs.GetEmployeeDetail(Id);
+    System.Data.DataTable Country = Practice.Models.AllProcs.Country_Select();
+
+}
+
+<h2>Edit your details</h2>
+<form method="post" action="/Home/Save">
+    
+    <div class="row-mt-2">
+        <div class="col-sm-8 offset-sm-2">
+            <div class="card">
+                <div class="card-header fw-bold text-center">
+                    Employee Details
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" name="Name" id="Name" class="form-control" value="@dt.Rows[0]["Name"].ToString()" />
+                            </div>
+                        </div>
+                        <input type="hidden" value="@Id" name="Id" id="Id" />
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="Email" id="Email" value="@dt.Rows[0]["Email"].ToString()" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="text" name="Phonenum" id="Phonenum" class="form-control" value="@dt.Rows[0]["PhoneNum"].ToString() " />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label id="gender">Gender</label>
+                                <br />
+                                @if (dt.Rows[0]["Gender"].ToString() == "0")
+                                {
+                                    <span>MALE</span>
+                                    <input type="radio" name="Gender" id="male" value="0" checked />
+                                    <span>FEMALE</span>
+                                    <input type="radio" name="Gender" id="female" value="1" />
+                                }
+                                else
+                                {
+                                    <span>MALE</span>
+                                    <input type="radio" name="Gender" id="male" value="0" />
+                                    <span?>FEMALE</span?>
+                                    <input type="radio" name="Gender" id="female" value="1" checked />
+                                }
+
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Age</label>
+                                <input type="number" name="Age" id="Age" class="form-control" value="@dt.Rows[0]["Age"].ToString()" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Departments</label>
+                                <select name="Dept" id="Dept" class="form-select">
+                                    <option value="">Select</option>
+                                    <option value="0">HR dept</option>
+                                    <option value="1">Sales</option>
+                                    <option value="2">Development</option>
+                                </select>
+                            </div>
+                            <script>$('#dept').val('@dt.Rows[0]["Department"].ToString()')</script>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Salary</label>
+                                <input type="number" name="Salary" id="Salary" class="form-control" value="@dt.Rows[0]["Salary"].ToString()" />
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Address</label>
+                                <textarea type="text" id="Address" name="Address" rows="3" class="form-control">@dt.Rows[0]["Address"].ToString()</textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <select name="Country" id="Country" class="form-select">
+                                    @for (int j = 0; j < Country.Rows.Count; j++)
+                                    {
+                                        <option value="@Country.Rows[j]["Id"].ToString()">@Country.Rows[j]["Name"].ToString()</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary form-control">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    @*<script>
+            function submit_btn() {
+
+
+                var gen = document.getElementById('male').checked == true ? 0 : 1;
+                var employee = {
+                    Id: @Id,
+                    Name: $('#name').val(),
+                    Email: $('#email').val(),
+                    Phonenum: $('#phone').val(),
+                    Gender: gen,
+                    Age: $('#age').val(),
+                    Dept: $('#dept').val(),
+                    Salary: $('#salary').val(),
+                    Address: $('#address').val(),
+                    Country: $('#country').val()
+                };
+                //employee.name = $('#name').val();
+                //employee.email = $('#email').val();
+                //employee.phonenum = $('#phone').val();
+                //employee.gender = $('#gender').val();
+                //employee.age = $('#age').val();
+                //employee.dept = $('#dept').val();
+                //employee.salary = $('#salary').val();
+                //employee.address = $('#address').val();
+                //employee.country = $('#country').val();
+
+                if (employee) {
+                    $.ajax({
+                        url: '/Home/Save',
+                        data: employee,
+                        type: "POST",
+                        success: function (result) {
+                            //clearForm();
+                            alert("Data updated successfully");
+                            location.reload()
+                        },
+                        error: function (msg) {
+                            alert();
+                        }
+
+                    })
+                }
+            }
+            //function clearForm() {
+            //    employee.name = $('#name').val(" ");
+            //    employee.email = $('#email').val(" ");
+            //    employee.phonenum = $('#phone').val(" ");
+            //    employee.gender = $('#gender').val(" ");
+            //    employee.age = $('#age').val(" ");
+            //    employee.dept = $('#dept').val(" ");
+            //    employee.salary = $('#salary').val(" ");
+            //    employee.address = $('#address').val(" ");
+            //    employee.country = $('#country').val(" ");
+            //}
+        </script>*@

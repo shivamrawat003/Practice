@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "PRRequest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+            <div style="background-color:yellow; height:50px; font-size:xx-large" class="col-sm-12 fw-bold text-center">
+                SGTC-LIMS
+            </div>
+<br />
+            <div style="font-size:x-large" class="col-sm-12 fw-bold text-center">
+                PR Request
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>PR#</label>
+                        <input type="text" name="" id="PR#" class="form-control" disabled />
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Status</label>
+                        <input type="text" name="" id="status" class="form-control" disabled />
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Initiated PR</label>
+                        <select name="" id="initiatedpr" class="form-select">
+                            <option value="">Select</option>
+                            <option value="0">HR dept</option>
+                            <option value="1">Sales</option>
+                            <option value="2">Development</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Requestor's Name</label>
+                        <input type="text" name="" id="RequestorName" placeholder="Requestor" class="form-control" disabled />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Requestor's Email</label>
+                        <input type="email" name="" id="RequestorEmail" placeholder="requestor@gmail.com" class="form-control" disabled />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Requestor's Division</label>
+                        <input type="text" name="" id="RequestorDiv" placeholder="REQUESTOR" class="form-control" disabled />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Requestor's Site</label>
+                        <input type="text" name="" id="RequestorSite" placeholder="test lab" class="form-control" disabled />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Project Name</label>
+                        <input type="text" name="" id="ProjectName" placeholder="Project Name" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Project Number</label>
+                        <input type="number" name="" id="ProjectNum" placeholder="Project Number" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Request Type</label>
+                        <select name="" id="RequestType" class="form-select">
+                            <option value="">Select</option>
+                            <option value="0">HR dept</option>
+                            <option value="1">Sales</option>
+                            <option value="2">Development</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label>Others</label>
+                        <input type="text" name="" id="Others" class="form-control" disabled/>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Purpose of Request</label>
+                        <select name="" id="POR" class="form-select">
+                            <option value="">Select</option>
+                            <option value="0">HR dept</option>
+                            <option value="1">Sales</option>
+                            <option value="2">Development</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Others</label>
+                        <input type="text" name="" id="Others" class="form-control" disabled />
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Unit of  3D file</label>
+                        <select name="" id="3D" class="form-select">
+                            <option value="">Select</option>
+                            <option value="0">HR dept</option>
+                            <option value="1">Sales</option>
+                            <option value="2">Development</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Others</label>
+                        <input type="text" name="" id="Others" class="form-control" disabled/>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Drawing# catalogue number</label>
+                        <input type="text" name="" id="catNum" placeholder="Drawing catalogue number" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Drawing document</label>
+                        <input type="file" name="" id="catdoc" placeholder="test lab" class="form-control" />
+                    </div>
+                </div>
+            </div>
+                @*<div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary form-control" onclick="submit_btn()">Submit</button>
+                        </div>
+                    </div>
+                </div>*@
+
